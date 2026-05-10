@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheng (Kevin) Shao | Electrical Engineering Portfolio</title>
+    <style>
+        /* --- CSS STYLES --- */
+        :root {
+            --primary: #003366; /* Engineering Blue */
+            --accent: #F4D03F; /* Highlight Yellow */
+            --text: #333;
+            --bg: #f9f9f9;
+            --white: #ffffff;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+            color: var(--text);
+            background-color: var(--bg);
+        }
+
+        /* HEADER */
+        header {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 5rem 1rem;
+            text-align: center;
+        }
+        
+        h1 { margin: 0; font-size: 3rem; letter-spacing: 1px; }
+        h2 { font-weight: 300; font-size: 1.4rem; margin-top: 15px; color: #ddd; }
+        
+        .contact-bar {
+            margin-top: 25px;
+            padding: 12px 25px;
+            background: rgba(255,255,255,0.1);
+            display: inline-block;
+            border-radius: 50px;
+        }
+
+        .contact-bar a {
+            color: var(--accent);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .contact-bar a:hover { text-decoration: underline; }
+
+        /* CONTAINER & SECTIONS */
+        .container {
+            max-width: 950px;
+            margin: auto;
+            padding: 3rem 2rem;
+        }
+
+        section {
+            background: var(--white);
+            padding: 3rem;
+            margin-bottom: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        
+        .section-title {
+            border-left: 6px solid var(--accent);
+            padding-left: 20px;
+            margin-bottom: 30px;
+            color: var(--primary);
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            font-size: 1.4rem;
+        }
+
+        p { margin-bottom: 1.5rem; }
+
+        /* ABOUT ME LAYOUT */
+        .about-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 2.5rem;
+        }
+        
+        .profile-pic {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid var(--accent);
+            flex-shrink: 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .about-text { font-size: 1.05rem; color: #444; }
+
+        /* SKILLS TAGS */
+        .skills-container { display: flex; flex-wrap: wrap; gap: 12px; }
+        .skill-tag {
+            background: #f0f4f8;
+            padding: 10px 18px;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary);
+            border: 1px solid #dbe2e8;
+            transition: background 0.2s;
+        }
+        .skill-tag:hover { background: #e1eef9; }
+
+        /* PROJECT SECTION */
+        .project-card {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .project-header {
+            background: var(--primary);
+            color: white;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .project-body { padding: 2.5rem; }
+
+        .project-content-wrapper {
+            display: flex;
+            gap: 2.5rem;
+            align-items: flex-start;
+        }
+
+        .project-info { flex: 1; }
+        
+        .project-visual { flex: 0 0 38%; }
+        
+        .project-visual img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+            border: 1px solid #eee;
+        }
+        
+        .project-detail-block { margin-bottom: 25px; }
+        .project-detail-block h4 {
+            color: var(--primary);
+            margin-bottom: 8px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        .project-detail-block ul { padding-left: 20px; }
+        .project-detail-block li { margin-bottom: 10px; color: #555; }
+
+        /* TRADES GRID */
+        .trades-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .trade-item {
+            background: #fdfdfd;
+            border: 1px solid #eee;
+            padding: 2rem;
+            border-radius: 8px;
+            transition: transform 0.2s;
+        }
+        
+        .trade-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+        
+        .trade-item h4 { margin-top: 0; color: var(--primary); font-size: 1.2rem; margin-bottom: 15px; }
+        .trade-item p { font-size: 0.95rem; color: #555; }
+
+        /* TIMELINE */
+        .timeline-item {
+            border-left: 4px solid var(--accent);
+            padding-left: 30px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        /* Utility to remove markers */
+        .timeline-item.no-marker {
+            border-left: none;
+            padding-left: 0;
+        }
+        .timeline-item.no-marker::before {
+            display: none;
+        }
+        
+        .role { font-weight: 800; font-size: 1.25rem; color: #222; }
+        .company { color: var(--primary); font-weight: 700; font-size: 1.1rem; margin-top: 5px;}
+        .date { font-size: 0.95rem; color: #666; margin-bottom: 15px; display: block; font-style: italic; }
+        
+        /* Style for Experience Paragraphs */
+        .experience-desc {
+            font-size: 0.95rem;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .timeline-item ul { margin: 15px 0 0 0; padding-left: 20px; }
+        .timeline-item li { margin-bottom: 10px; color: #444; }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 4rem 1rem;
+            background: #eee;
+            font-size: 1rem;
+            color: #555;
+            margin-top: 3rem;
+        }
+        
+        .download-btn {
+            background-color: var(--accent);
+            color: var(--primary);
+            padding: 14px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 25px;
+            transition: background 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .download-btn:hover { background-color: #d4ae10; }
+
+        /* RESPONSIVE */
+        @media (max-width: 800px) {
+            .about-container { flex-direction: column; align-items: center; text-align: center; }
+            .project-content-wrapper { flex-direction: column-reverse; }
+            .project-visual { width: 100%; margin-bottom: 25px; }
+            header { padding: 3rem 1rem; }
+            h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Cheng (Kevin) Shao</h1>
+        <h2>B.A.Sc. Electrical Engineering Student | University of Waterloo</h2>
+        
+        <div class="contact-bar">
+            <a href="mailto:Kevinye0907@gmail.com">Kevinye0907@gmail.com</a>
+            <a href="https://www.linkedin.com/in/cheng-shao-1b6358383/">LinkedIn</a>
+            <a href="https://github.com/kevinye0907">GitHub</a>
+        </div>
+        <br>
+        <a href="Kevin_Shao_Resume.pdf" class="download-btn" target="_blank">Download Full Resume</a>
+    </header>
+
+    <div class="container">
+
+        <section id="about">
+            <h3 class="section-title">My Journey to Engineering</h3>
+            <div class="about-container">
+                <img src="profile.jpg" alt="Kevin Shao" class="profile-pic">
+                
+                <div class="about-text">
+                    <p>
+                        I am a first-year Electrical Engineering student at the University of Waterloo, passionate about how hardware and software converge to solve physical problems. My academic focus lies in embedded systems, IoT architecture, and digital circuitry.
+                    </p>
+                    <p>
+                        My path to engineering was not traditional. Before entering Waterloo, I completed the VIU Trades Program, where I gained rigorous hands-on experience in automotive repair and electrical fabrication. While many engineers begin with theory, I began with a wrench and a multimeter.
+                    </p>
+                    <p>
+                        From that experience came an unusual sense of how things fit together mechanically. Designing a circuit now involves more than lines on paper - it includes how parts go together, heat management, structural strength. Currently, I am looking for a four-month Co-op role that allows me to use hands-on insight alongside classroom knowledge.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <h3 class="section-title">Academic Background</h3>
+            <div class="timeline-item">
+                <div class="role">Bachelor of Applied Science, Electrical Engineering (Honours, Co-op)</div>
+                <div class="company">University of Waterloo | Waterloo, ON</div>
+                <span class="date">Sept 2025 – Present (Expected Graduation: May 2030)</span>
+                <p>
+                    Completed a rigorous curriculum focused on the fundamentals of electrical systems and computation.
+                </p>
+                <ul>
+                    <li><strong>ECE 150 (Fundamentals of Programming):</strong> C++ memory management, pointers, and algorithm optimization.</li>
+                    <li><strong>ECE 105 (Physics of Electrical Engineering):</strong> Mechanics, wave theory, and their application to sensor technology.</li>
+                    <li><strong>MATH 117 (Calculus 1 for Engineering):</strong> Advanced analysis of rates of change and optimization problems.</li>
+                    <li><strong>MATH 115 (Linear Algebra):</strong> Systems of linear equations, matrix algebra, and vector spaces.</li>
+                    <li><strong>ENGL 192 (Communication in Electrical Engineering):</strong> Technical communication and engineering documentation standards.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h3 class="section-title">Technical Arsenal</h3>
+            <div class="skills-container">
+                <span class="skill-tag">C++ Programming</span>
+                <span class="skill-tag">Arduino / Microcontrollers</span>
+                <span class="skill-tag">IoT & Wireless Protocols</span>
+                <span class="skill-tag">Circuit Analysis & Design</span>
+                <span class="skill-tag">Sensor Integration (Oximetry)</span>
+                <span class="skill-tag">Automotive Diagnostics</span>
+                <span class="skill-tag">Soldering & Wiring</span>
+                <span class="skill-tag">Technical Documentation</span>
+            </div>
+        </section>
+
+        <section>
+            <h3 class="section-title">Featured Project: Smartwatch Sleep Monitor</h3>
+            <div class="project-card">
+                <div class="project-header">
+                    <strong>ECE 198 Design Project (Arduino & C++)</strong>
+                    <small>Sept 2025 - Dec 2025</small>
+                </div>
+                <div class="project-body">
+                    
+                    <div class="project-content-wrapper">
+                        
+                        <div class="project-info">
+                            <div class="project-detail-block">
+                                <h4>The Problem</h4>
+                                <p>Hospital-induced delirium affects a significant percentage of inpatients, often exacerbated by disrupted sleep cycles that go unmonitored. Existing medical-grade sleep monitors are often bulky, expensive, and invasive, making them unsuitable for continuous, low-profile tracking.</p>
+                            </div>
+
+                            <div class="project-detail-block">
+                                <h4>The Engineering Solution</h4>
+                                <p>I engineered a low-cost, non-invasive wearable prototype utilizing the <strong>Arduino UNO R4 WiFi</strong> architecture. The system serves as a preliminary diagnostic tool for caregivers.</p>
+                                <ul>
+                                    <li><strong>Signal Processing (C++):</strong> Developed firmware algorithms to filter raw data from the pulse oximeter. Implemented hysteresis thresholds (Sleep &lt; 55 BPM, Wake &gt; 65 BPM) to accurately categorize sleep states and prevent false state switching due to signal noise.</li>
+                                    <li><strong>Hardware Integration:</strong> Designed a compact circuit integrating the microcontroller with biometric sensors, focusing on power efficiency and reliable connections.</li>
+                                    <li><strong>IoT Connectivity:</strong> Leveraged the ESP32 module on the Uno R4 to establish a secure Wi-Fi connection. Wrote scripts to package data arrays and automate daily email reports via Gmail API, delivering actionable insights directly to medical staff.</li>
+                                </ul>
+                            </div>
+
+                            <div class="project-detail-block">
+                                <h4>Key Outcomes</h4>
+                                <p>The prototype achieved a 95% transmission success rate during testing. It successfully logged 12 hours of continuous heart rate data, demonstrating that consumer-grade microcontrollers can be effectively adapted for biomedical IoT applications.</p>
+                            </div>
+                        </div>
+
+                        <div class="project-visual">
+                            <img src="project.jpg" alt="Sleep Monitor Prototype">
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h3 class="section-title">Trades & Mechanical Projects</h3>
+            <p style="margin-bottom: 25px;"><em>Completed during the VIU Trades Program (Sep 2024 - Feb 2025). This practical experience allows me to bridge the gap between abstract design and physical fabrication.</em></p>
+            
+            <div class="trades-grid">
+                <div class="trade-item">
+                    <h4>Electrical & Circuitry</h4>
+                    <p>
+                        Wires first had to make sense on paper before anything got built - reading diagrams showed where electricity would travel and how grounding worked. Only after that clarity did hands touch materials. As pieces came together, knowing how current moves through copper mattered most; each connection demanded careful stripping, precise joining, then solid insulation. Outlets went in last, fixed firmly and tested thoroughly, turning ideas into working circuits you could see and touch.
+                    </p>
+                </div>
+                <div class="trade-item">
+                    <h4>Automotive Systems & Diagnostics</h4>
+                    <p>
+                        Starting under the hood taught me how cars actually work, piece by piece. Fixing brakes wasn’t just about new pads - I checked rotors closely, watching for warping while learning how parts fit together. A single beam of light guided my hands through tangled wires inside headlights, learning how to navigate the tight space without damaging the bulb. Oil changes turned into lessons on accuracy - every step had to be exact. Machines hide their truth until you’re inside them. Small oversights grow louder, harder, faster than expected.
+                    </p>
+                </div>
+                <div class="trade-item">
+                    <h4>Precision Fabrication & Assembly</h4>
+                    <p>
+                        Tools bite into wood just like metal resists force when pushed too hard. Each cut on the machine followed numbers but responded to feel. What mattered most showed up only after pressure was applied - how material bends before it splits. Adjustments happened quietly, mid-process, without announcements. The way things fit came down to tiny shifts nobody sees. Measurements needed to be precise and accurate for trusses to be built.
+                    </p>
+                </div>
+                <div class="trade-item">
+                    <h4>Thermal Cutting & Welding</h4>
+                    <p>
+                        A spark would start it - metal meeting flame, then splitting or joining under careful heat. Temperature had to stay within tight limits, else the shape could twist out of line. Working this way made clear what fire does to steel, up close and real. Hands needed to move carefully and precisely, never shaky, while rules kept everyone back from harm's edge.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h3 class="section-title">Professional Experience</h3>
+            
+            <div class="timeline-item no-marker">
+                <div class="role">Project Team Member</div>
+                <div class="company">Waterloo Experience (WE) Accelerate Program | Remote</div>
+                <span class="date">Winter 2026</span>
+                
+                <p class="experience-desc">
+                    Conducted an accessibility and usability audit of five faculty co-op community pages to identify UI/UX inconsistencies and critical accessibility failures. 
+                </p>
+                <p class="experience-desc">
+                    Developed comprehensive content modules for a digital accessibility micro-course, focusing on accessible HTML, CSS, and inclusive web design practices. Collaborated within a cross-functional project team to establish manifestos and evaluate digital environments for strict AODA compliance and adherence to WCAG standards.
+                </p>
+            </div>
+
+            <div class="timeline-item no-marker">
+                <div class="role">Manual Labour Worker (Process Optimization)</div>
+                <div class="company">Vanderkooi Farm | Nanaimo, BC</div>
+                <span class="date">Dec 2024 – Jul 2025</span>
+                
+                <p class="experience-desc">
+                    Working fast on a farm that handled huge numbers, my small group - six of us - managed more than twenty thousand animals each round. Every move had to be sharp because delays slowed everyone down, so we stayed closely linked through quick fixes and shared timing even when pressure built up.
+                </p>
+                <p class="experience-desc">
+                    Focusing wasn’t just about movement - it tied into keeping systems steady. Watching how machines ran helped avoid interruptions before they happened. Rules around cleanliness and disease control were followed without exception. Meeting food safety standards remained a constant priority.
+                </p>
+            </div>
+
+            <div class="timeline-item no-marker">
+                <div class="role">Room Maintenance & Logistics Lead</div>
+                <div class="company">Mapleview B&B | Nanaimo, BC</div>
+                <span class="date">Summers 2022 – 2025</span>
+                
+                <p class="experience-desc">
+                    Around each booking, I handled every part of setting up guest stays, stepping in whenever facility issues came up. Before anyone arrived, checks on plumbing, lights, and heating happened regularly, so nothing was missed.
+                </p>
+                <p class="experience-desc">
+                    Working this job sharpened how I interact with guests. When problems popped up - like sudden changes or equipment hiccups - I stepped in without delay, handling each situation smoothly. Juggling tricky reservation timelines became routine, all while keeping service quality steady, which helped earn solid feedback over time.
+                </p>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p><strong>Let's Connect</strong></p>
+        <p>Currently open for 4-month Co-op terms starting May 2026.</p>
+        <div class="contact-bar" style="background: #e0e0e0;">
+            <a href="mailto:Kevinye0907@gmail.com" style="color:var(--primary)">Kevinye0907@gmail.com</a>
+            <a href="tel:2363334484" style="color:var(--primary)">236-333-4484</a>
+        </div>
+        <p style="margin-top: 2.5rem; font-size: 0.9rem; color: #888;">&copy; 2026 Cheng (Kevin) Shao. Built with HTML/CSS.</p>
+    </footer>
+
+</body>
+</html>
