@@ -142,11 +142,12 @@
         
         .project-visual { flex: 0 0 38%; }
         
-        .project-visual img {
+        .project-visual img, .experience-visual img {
             width: 100%;
             border-radius: 8px;
             box-shadow: 0 6px 15px rgba(0,0,0,0.15);
             border: 1px solid #eee;
+            margin-bottom: 15px;
         }
         
         .project-detail-block { margin-bottom: 25px; }
@@ -191,7 +192,6 @@
             position: relative;
         }
         
-        /* Utility to remove markers */
         .timeline-item.no-marker {
             border-left: none;
             padding-left: 0;
@@ -204,7 +204,6 @@
         .company { color: var(--primary); font-weight: 700; font-size: 1.1rem; margin-top: 5px;}
         .date { font-size: 0.95rem; color: #666; margin-bottom: 15px; display: block; font-style: italic; }
         
-        /* Style for Experience Paragraphs */
         .experience-desc {
             font-size: 0.95rem;
             color: #444;
@@ -244,8 +243,8 @@
         /* RESPONSIVE */
         @media (max-width: 800px) {
             .about-container { flex-direction: column; align-items: center; text-align: center; }
-            .project-content-wrapper { flex-direction: column-reverse; }
-            .project-visual { width: 100%; margin-bottom: 25px; }
+            .project-content-wrapper, .experience-content-wrapper { flex-direction: column-reverse; }
+            .project-visual, .experience-visual { width: 100%; margin-bottom: 25px; }
             header { padding: 3rem 1rem; }
             h1 { font-size: 2.2rem; }
         }
@@ -275,123 +274,30 @@
                 
                 <div class="about-text">
                     <p>
-                        I am a first-year Electrical Engineering student at the University of Waterloo, passionate about how hardware and software converge to solve physical problems. My academic focus lies in embedded systems, IoT architecture, and digital circuitry.
+                        I am an Electrical Engineering student at the University of Waterloo, passionate about how hardware and software converge to solve physical problems. My academic focus lies in embedded systems, IoT architecture, and data acquisition (DAQ) circuitry.
                     </p>
                     <p>
                         My path to engineering was not traditional. Before entering Waterloo, I completed the VIU Trades Program, where I gained rigorous hands-on experience in automotive repair and electrical fabrication. While many engineers begin with theory, I began with a wrench and a multimeter.
                     </p>
                     <p>
-                        From that experience came an unusual sense of how things fit together mechanically. Designing a circuit now involves more than lines on paper - it includes how parts go together, heat management, structural strength. Currently, I am looking for a four-month Co-op role that allows me to use hands-on insight alongside classroom knowledge.
+                        From that experience came an unusual sense of how things fit together mechanically. Designing a circuit now involves more than lines on paper - it includes understanding how parts integrate into a larger system, heat management, and structural reliability. I am actively applying these skills on the UW Baja SAE team and am seeking a Fall 2026 Co-op placement to bring this hands-on insight to a professional engineering environment.
                     </p>
                 </div>
-            </div>
-        </section>
-
-        <section id="education">
-            <h3 class="section-title">Academic Background</h3>
-            <div class="timeline-item">
-                <div class="role">Bachelor of Applied Science, Electrical Engineering (Honours, Co-op)</div>
-                <div class="company">University of Waterloo | Waterloo, ON</div>
-                <span class="date">Sept 2025 – Present (Expected Graduation: May 2030)</span>
-                <p>
-                    Completed a rigorous curriculum focused on the fundamentals of electrical systems and computation.
-                </p>
-                <ul>
-                    <li><strong>ECE 150 (Fundamentals of Programming):</strong> C++ memory management, pointers, and algorithm optimization.</li>
-                    <li><strong>ECE 105 (Physics of Electrical Engineering):</strong> Mechanics, wave theory, and their application to sensor technology.</li>
-                    <li><strong>MATH 117 (Calculus 1 for Engineering):</strong> Advanced analysis of rates of change and optimization problems.</li>
-                    <li><strong>MATH 115 (Linear Algebra):</strong> Systems of linear equations, matrix algebra, and vector spaces.</li>
-                    <li><strong>ENGL 192 (Communication in Electrical Engineering):</strong> Technical communication and engineering documentation standards.</li>
-                </ul>
             </div>
         </section>
 
         <section>
             <h3 class="section-title">Technical Arsenal</h3>
             <div class="skills-container">
-                <span class="skill-tag">C++ Programming</span>
-                <span class="skill-tag">Arduino / Microcontrollers</span>
+                <span class="skill-tag">C++ & HTML</span>
+                <span class="skill-tag">Arduino / ESP32</span>
                 <span class="skill-tag">IoT & Wireless Protocols</span>
-                <span class="skill-tag">Circuit Analysis & Design</span>
-                <span class="skill-tag">Sensor Integration (Oximetry)</span>
-                <span class="skill-tag">Automotive Diagnostics</span>
-                <span class="skill-tag">Soldering & Wiring</span>
-                <span class="skill-tag">Technical Documentation</span>
-            </div>
-        </section>
-
-        <section>
-            <h3 class="section-title">Featured Project: Smartwatch Sleep Monitor</h3>
-            <div class="project-card">
-                <div class="project-header">
-                    <strong>ECE 198 Design Project (Arduino & C++)</strong>
-                    <small>Sept 2025 - Dec 2025</small>
-                </div>
-                <div class="project-body">
-                    
-                    <div class="project-content-wrapper">
-                        
-                        <div class="project-info">
-                            <div class="project-detail-block">
-                                <h4>The Problem</h4>
-                                <p>Hospital-induced delirium affects a significant percentage of inpatients, often exacerbated by disrupted sleep cycles that go unmonitored. Existing medical-grade sleep monitors are often bulky, expensive, and invasive, making them unsuitable for continuous, low-profile tracking.</p>
-                            </div>
-
-                            <div class="project-detail-block">
-                                <h4>The Engineering Solution</h4>
-                                <p>I engineered a low-cost, non-invasive wearable prototype utilizing the <strong>Arduino UNO R4 WiFi</strong> architecture. The system serves as a preliminary diagnostic tool for caregivers.</p>
-                                <ul>
-                                    <li><strong>Signal Processing (C++):</strong> Developed firmware algorithms to filter raw data from the pulse oximeter. Implemented hysteresis thresholds (Sleep &lt; 55 BPM, Wake &gt; 65 BPM) to accurately categorize sleep states and prevent false state switching due to signal noise.</li>
-                                    <li><strong>Hardware Integration:</strong> Designed a compact circuit integrating the microcontroller with biometric sensors, focusing on power efficiency and reliable connections.</li>
-                                    <li><strong>IoT Connectivity:</strong> Leveraged the ESP32 module on the Uno R4 to establish a secure Wi-Fi connection. Wrote scripts to package data arrays and automate daily email reports via Gmail API, delivering actionable insights directly to medical staff.</li>
-                                </ul>
-                            </div>
-
-                            <div class="project-detail-block">
-                                <h4>Key Outcomes</h4>
-                                <p>The prototype achieved a 95% transmission success rate during testing. It successfully logged 12 hours of continuous heart rate data, demonstrating that consumer-grade microcontrollers can be effectively adapted for biomedical IoT applications.</p>
-                            </div>
-                        </div>
-
-                        <div class="project-visual">
-                            <img src="project.jpg" alt="Sleep Monitor Prototype">
-                        </div>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h3 class="section-title">Trades & Mechanical Projects</h3>
-            <p style="margin-bottom: 25px;"><em>Completed during the VIU Trades Program (Sep 2024 - Feb 2025). This practical experience allows me to bridge the gap between abstract design and physical fabrication.</em></p>
-            
-            <div class="trades-grid">
-                <div class="trade-item">
-                    <h4>Electrical & Circuitry</h4>
-                    <p>
-                        Wires first had to make sense on paper before anything got built - reading diagrams showed where electricity would travel and how grounding worked. Only after that clarity did hands touch materials. As pieces came together, knowing how current moves through copper mattered most; each connection demanded careful stripping, precise joining, then solid insulation. Outlets went in last, fixed firmly and tested thoroughly, turning ideas into working circuits you could see and touch.
-                    </p>
-                </div>
-                <div class="trade-item">
-                    <h4>Automotive Systems & Diagnostics</h4>
-                    <p>
-                        Starting under the hood taught me how cars actually work, piece by piece. Fixing brakes wasn’t just about new pads - I checked rotors closely, watching for warping while learning how parts fit together. A single beam of light guided my hands through tangled wires inside headlights, learning how to navigate the tight space without damaging the bulb. Oil changes turned into lessons on accuracy - every step had to be exact. Machines hide their truth until you’re inside them. Small oversights grow louder, harder, faster than expected.
-                    </p>
-                </div>
-                <div class="trade-item">
-                    <h4>Precision Fabrication & Assembly</h4>
-                    <p>
-                        Tools bite into wood just like metal resists force when pushed too hard. Each cut on the machine followed numbers but responded to feel. What mattered most showed up only after pressure was applied - how material bends before it splits. Adjustments happened quietly, mid-process, without announcements. The way things fit came down to tiny shifts nobody sees. Measurements needed to be precise and accurate for trusses to be built.
-                    </p>
-                </div>
-                <div class="trade-item">
-                    <h4>Thermal Cutting & Welding</h4>
-                    <p>
-                        A spark would start it - metal meeting flame, then splitting or joining under careful heat. Temperature had to stay within tight limits, else the shape could twist out of line. Working this way made clear what fire does to steel, up close and real. Hands needed to move carefully and precisely, never shaky, while rules kept everyone back from harm's edge.
-                    </p>
-                </div>
+                <span class="skill-tag">Data Acquisition (DAQ)</span>
+                <span class="skill-tag">Circuit Analysis & PCB Design</span>
+                <span class="skill-tag">Sensor Integration (MPU6050, Hall Effect)</span>
+                <span class="skill-tag">Wire Harnessing</span>
+                <span class="skill-tag">Soldering & Power Tools</span>
+                <span class="skill-tag">Mandarin (Fluent Spoken)</span>
             </div>
         </section>
 
@@ -399,42 +305,145 @@
             <h3 class="section-title">Professional Experience</h3>
             
             <div class="timeline-item no-marker">
+                <div class="role">Electrical Team Member</div>
+                <div class="company">University of Waterloo Baja SAE Team | Waterloo, ON</div>
+                <span class="date">Jan 2026 – Present</span>
+                
+                <div class="project-content-wrapper" style="margin-top: 15px;">
+                    <div class="project-info">
+                        <p class="experience-desc">
+                            As a core member of the electrical sub-team, I am deeply involved in designing and implementing the electronic backbone for our 10 HP off-road competition vehicle. My primary focus is on robust telemetry and system regulation in extreme environments.
+                        </p>
+                        <ul>
+                            <li>Integrating and testing a Data Acquisition (DAQ) system using Arduino, MPU6050 accelerometers, and custom RPM sensors to provide live vehicle diagnostics.</li>
+                            <li>Designing custom PCBs and developing an upgraded 18V battery setup to reliably regulate internal electrical components during harsh races.</li>
+                            <li>Researching and coding strain gauges to extract live telemetry data, aiding the dynamics team in comprehensive system calibration.</li>
+                            <li>Fabricating space-efficient wire harnesses and designing circuit schematics to ensure the 2026 vehicle is competition-ready and fault-tolerant.</li>
+                        </ul>
+                    </div>
+                    <div class="project-visual">
+                        <img src="baja-buggy.jpg" alt="University of Waterloo Baja SAE Buggy">
+                        <p style="font-size: 0.85rem; color: #777; text-align: center; margin-top: 5px;">Our Baja SAE chassis in the workshop, awaiting final electrical harnessing.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item no-marker">
                 <div class="role">Project Team Member</div>
                 <div class="company">Waterloo Experience (WE) Accelerate Program | Remote</div>
                 <span class="date">Winter 2026</span>
-                
                 <p class="experience-desc">
-                    Conducted an accessibility and usability audit of five faculty co-op community pages to identify UI/UX inconsistencies and critical accessibility failures. 
-                </p>
-                <p class="experience-desc">
-                    Developed comprehensive content modules for a digital accessibility micro-course, focusing on accessible HTML, CSS, and inclusive web design practices. Collaborated within a cross-functional project team to establish manifestos and evaluate digital environments for strict AODA compliance and adherence to WCAG standards.
+                    Conducted comprehensive accessibility and usability audits of five faculty co-op community pages, successfully identifying and documenting critical UI/UX failures. Developed digital accessibility micro-course modules with a strong focus on accessible HTML, CSS, and inclusive web design practices. Evaluated digital environments to ensure strict compliance with AODA and WCAG standards.
                 </p>
             </div>
 
             <div class="timeline-item no-marker">
-                <div class="role">Manual Labour Worker (Process Optimization)</div>
+                <div class="role">Manual Labour Worker</div>
                 <div class="company">Vanderkooi Farm | Nanaimo, BC</div>
                 <span class="date">Dec 2024 – Jul 2025</span>
-                
                 <p class="experience-desc">
-                    Working fast on a farm that handled huge numbers, my small group - six of us - managed more than twenty thousand animals each round. Every move had to be sharp because delays slowed everyone down, so we stayed closely linked through quick fixes and shared timing even when pressure built up.
-                </p>
-                <p class="experience-desc">
-                    Focusing wasn’t just about movement - it tied into keeping systems steady. Watching how machines ran helped avoid interruptions before they happened. Rules around cleanliness and disease control were followed without exception. Meeting food safety standards remained a constant priority.
+                    Collaborated with a fast-paced team to execute large-scale livestock transfer operations, processing over 20,000 chickens per shift. Strict adherence to humane handling requirements and safety protocols was mandatory. Maintained high performance, stamina, and reliability during intense, high-volume seasonal peak periods, optimizing our workflow to minimize delays.
                 </p>
             </div>
 
             <div class="timeline-item no-marker">
-                <div class="role">Room Maintenance & Logistics Lead</div>
+                <div class="role">Room Maintenance Worker</div>
                 <div class="company">Mapleview B&B | Nanaimo, BC</div>
                 <span class="date">Summers 2022 – 2025</span>
-                
                 <p class="experience-desc">
-                    Around each booking, I handled every part of setting up guest stays, stepping in whenever facility issues came up. Before anyone arrived, checks on plumbing, lights, and heating happened regularly, so nothing was missed.
+                    Managed guest accommodations and property arrangements, maintaining a high standard of cleanliness and operational readiness. Handled listing coordination, immediate facility troubleshooting, and guest communication, securing consistently positive reviews through rapid problem-solving.
                 </p>
-                <p class="experience-desc">
-                    Working this job sharpened how I interact with guests. When problems popped up - like sudden changes or equipment hiccups - I stepped in without delay, handling each situation smoothly. Juggling tricky reservation timelines became routine, all while keeping service quality steady, which helped earn solid feedback over time.
-                </p>
+            </div>
+        </section>
+
+        <section>
+            <h3 class="section-title">Featured Projects</h3>
+
+            <!-- RPM MONITORING DEVICE -->
+            <div class="project-card">
+                <div class="project-header">
+                    <strong>RPM Monitoring Device (ESP32 & C++)</strong>
+                    <small>Jan 2026 - Present</small>
+                </div>
+                <div class="project-body">
+                    <div class="project-content-wrapper">
+                        <div class="project-info">
+                            <div class="project-detail-block">
+                                <h4>System Overview</h4>
+                                <p>To optimize our Baja SAE vehicle's performance, I engineered a custom rotational speed sensing solution using an <strong>ESP32 microcontroller</strong> and an <strong>HW-477 Hall Effect sensor</strong> to track wheel and engine RPM in real-time.</p>
+                            </div>
+
+                            <div class="project-detail-block">
+                                <h4>Technical Implementation</h4>
+                                <ul>
+                                    <li><strong>Hardware:</strong> Wired and calibrated the HW-477 analog magnetic sensor to precisely trigger on passing ferrous targets, passing the analog signal into the ESP32.</li>
+                                    <li><strong>Firmware (C++):</strong> Developed efficient code to process rapid analog magnetic signals, applying debouncing logic to calculate highly accurate, real-time RPM telemetry without overflowing the serial monitor.</li>
+                                    <li><strong>Integration:</strong> Seamlessly integrated the sensor array into the vehicle's broader DAQ framework, allowing the engineering team to map RPM against accelerometer data for better CVT tuning.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="project-visual">
+                            <img src="esp32-rpm.jpg" alt="ESP32 RPM Monitor Testing via Arduino IDE">
+                            <p style="font-size: 0.85rem; color: #777; text-align: center; margin-top: 5px;">Testing the ESP32 and HW-477 sensor logic via the Arduino IDE serial monitor.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SMARTWATCH SLEEP MONITOR -->
+            <div class="project-card">
+                <div class="project-header">
+                    <strong>Smartwatch Sleep Monitor (ECE 198 Design Project)</strong>
+                    <small>Sept 2025 - Dec 2025</small>
+                </div>
+                <div class="project-body">
+                    <div class="project-content-wrapper">
+                        <div class="project-info">
+                            <div class="project-detail-block">
+                                <h4>The Engineering Solution</h4>
+                                <p>I engineered a low-cost, non-invasive wearable prototype utilizing the <strong>Arduino UNO R4 WiFi</strong> architecture to address hospital-induced delirium by monitoring patient sleep cycles.</p>
+                                <ul>
+                                    <li><strong>Signal Processing (C++):</strong> Programmed firmware to filter raw data from the pulse oximeter. Implemented hysteresis thresholds (Sleep &lt; 55 BPM, Wake &gt; 65 BPM) to accurately detect sleep states.</li>
+                                    <li><strong>IoT Connectivity:</strong> Implemented IoT functionality to securely transmit automated daily sleep reports and data arrays directly to caregivers via Gmail/Wi-Fi integration.</li>
+                                    <li><strong>Validation:</strong> Validated system reliability through component testing, confirming accurate heart rate logging, state switching, and a high success rate of email data delivery.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h3 class="section-title">Trades & Mechanical Foundation</h3>
+            <p style="margin-bottom: 25px;"><em>Completed during the VIU Trades Program (Sep 2024 - Feb 2025). This practical experience allows me to bridge the gap between abstract electrical design and physical, structural fabrication.</em></p>
+            
+            <div class="trades-grid">
+                <div class="trade-item">
+                    <h4>Electrical & Circuitry</h4>
+                    <p>
+                        Fabricated electrical extension units entirely from scratch. This required strict interpretation of technical schematics and a deep understanding of current flow, ensuring all builds were in full compliance with CSA grounding and safety standards.
+                    </p>
+                </div>
+                <div class="trade-item">
+                    <h4>Automotive Diagnostics</h4>
+                    <p>
+                        Performed hands-on automotive maintenance, including brake pad replacements and fluid servicing. This instilled a practical understanding of vehicle mechanical systems, tight-tolerance assembly, and rigorous workshop safety protocols.
+                    </p>
+                </div>
+                <div class="trade-item">
+                    <h4>Precision Fabrication</h4>
+                    <p>
+                        Fabricated custom products using heavy industrial power tools. This process required applying precision finishing techniques, analyzing material properties under stress, and adjusting measurements on the fly to ensure perfect assembly fits.
+                    </p>
+                </div>
+                <div class="trade-item">
+                    <h4>Thermal Cutting & Welding</h4>
+                    <p>
+                        Utilized thermal cutting and welding techniques to separate and fuse metal components. Working with open flame and molten steel demanded extreme focus on heat control, structural integrity, and safety compliance.
+                    </p>
+                </div>
             </div>
         </section>
 
@@ -442,7 +451,7 @@
 
     <footer>
         <p><strong>Let's Connect</strong></p>
-        <p>Currently open for 4-month Co-op terms starting May 2026.</p>
+        <p>Currently open for 4-month Co-op terms starting <strong>Fall 2026</strong>.</p>
         <div class="contact-bar" style="background: #e0e0e0;">
             <a href="mailto:Kevinye0907@gmail.com" style="color:var(--primary)">Kevinye0907@gmail.com</a>
             <a href="tel:2363334484" style="color:var(--primary)">236-333-4484</a>
