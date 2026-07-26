@@ -293,7 +293,7 @@
                 <span class="skill-tag">Arduino / ESP32</span>
                 <span class="skill-tag">IoT & Wireless Protocols</span>
                 <span class="skill-tag">Data Acquisition (DAQ)</span>
-                <span class="skill-tag">Circuit Analysis & PCB Design</span>
+                <span class="skill-tag">Circuit Analysis & PCB Design (KiCad)</span>
                 <span class="skill-tag">Sensor Integration (MPU6050, Hall Effect)</span>
                 <span class="skill-tag">Wire Harnessing</span>
                 <span class="skill-tag">Soldering & Power Tools</span>
@@ -316,7 +316,7 @@
                         </p>
                         <ul>
                             <li>Integrating and testing a Data Acquisition (DAQ) system using Arduino, MPU6050 accelerometers, and custom RPM sensors to provide live vehicle diagnostics.</li>
-                            <li>Designing custom PCBs and developing an upgraded 18V battery setup to reliably regulate internal electrical components during harsh races.</li>
+                            <li>Designing custom PCBs, including a 19V-13V buck converter, to reliably regulate drill battery power for internal electrical components during harsh races.</li>
                             <li>Researching and coding strain gauges to extract live telemetry data, aiding the dynamics team in comprehensive system calibration.</li>
                             <li>Fabricating space-efficient wire harnesses and designing circuit schematics to ensure the 2026 vehicle is competition-ready and fault-tolerant.</li>
                         </ul>
@@ -345,19 +345,47 @@
                     Collaborated with a fast-paced team to execute large-scale livestock transfer operations, processing over 20,000 chickens per shift. Strict adherence to humane handling requirements and safety protocols was mandatory. Maintained high performance, stamina, and reliability during intense, high-volume seasonal peak periods, optimizing our workflow to minimize delays.
                 </p>
             </div>
-
-            <div class="timeline-item no-marker">
-                <div class="role">Room Maintenance Worker</div>
-                <div class="company">Mapleview B&B | Nanaimo, BC</div>
-                <span class="date">Summers 2022 – 2025</span>
-                <p class="experience-desc">
-                    Managed guest accommodations and property arrangements, maintaining a high standard of cleanliness and operational readiness. Handled listing coordination, immediate facility troubleshooting, and guest communication, securing consistently positive reviews through rapid problem-solving.
-                </p>
-            </div>
         </section>
 
         <section>
             <h3 class="section-title">Featured Projects</h3>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <strong>19V-13V Buck Converter Board (Baja SAE)</strong>
+                    <small>Jan 2026 - Present</small>
+                </div>
+                <div class="project-body">
+                    <div class="project-content-wrapper">
+                        <div class="project-info">
+                            <div class="project-detail-block">
+                                <h4>System Overview</h4>
+                                <p>To optimize our Baja SAE vehicle's electrical reliability, I engineered a custom step-down switching regulator PCB to convert a 19V drill battery input into a stable 13V output for our live telemetry framework.</p>
+                            </div>
+
+                            <div class="project-detail-block">
+                                <h4>Technical Implementation</h4>
+                                <ul>
+                                    <li><strong>Hardware Design:</strong> Engineered the schematic and routed the board in KiCad, incorporating an LM2596T-ADJ regulator, a 68µH (4A Isat) inductor, and a 1N5822 Schottky diode for high-efficiency power conversion.</li>
+                                    <li><strong>Power Conditioning:</strong> Implemented 470µF and 330µF Low-ESR capacitors alongside 100nF X7R and 1nF bypass capacitors to minimize voltage ripple and electrical noise in extreme racing environments.</li>
+                                    <li><strong>Integration:</strong> Designed the board with generic Phoenix terminal blocks to ensure secure, vibration-resistant wire harnessing to the vehicle's main DAQ system.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="project-visual">
+                            <img src="Screenshot 2026-07-26 at 12.54.52 PM.png" alt="3D render of the 19V-13V Buck Converter">
+                            <p style="font-size: 0.85rem; color: #777; text-align: center; margin-top: 5px; margin-bottom: 25px;">KiCad 3D render of the populated power regulation board[cite: 3].</p>
+                            
+                            <img src="Screenshot 2026-07-26 at 12.54.14 PM.png" alt="PCB layout and routing">
+                            <p style="font-size: 0.85rem; color: #777; text-align: center; margin-top: 5px; margin-bottom: 25px;">PCB routing and copper layout[cite: 2].</p>
+                            
+                            <img src="Screenshot 2026-07-26 at 12.53.30 PM.png" alt="Schematic design">
+                            <p style="font-size: 0.85rem; color: #777; text-align: center; margin-top: 5px;">Logic schematic detailing the LM2596T-ADJ circuit[cite: 1].</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div class="project-card">
                 <div class="project-header">
