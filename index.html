@@ -142,7 +142,8 @@
         
         .project-visual { flex: 0 0 38%; }
         
-        .project-visual img, .experience-visual img {
+        /* STANDARD IMAGES */
+        .project-visual > img, .experience-visual img {
             width: 100%;
             border-radius: 8px;
             box-shadow: 0 6px 15px rgba(0,0,0,0.15);
@@ -150,6 +151,68 @@
             margin-bottom: 15px;
         }
         
+        /* CAROUSEL / SLIDER STYLES */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #eee;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+            margin-bottom: 10px;
+        }
+        
+        .carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent) #eee;
+            -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
+        }
+        
+        /* Custom scrollbar for webkit (Chrome/Safari) */
+        .carousel::-webkit-scrollbar { height: 8px; }
+        .carousel::-webkit-scrollbar-track { background: #eee; }
+        .carousel::-webkit-scrollbar-thumb { background-color: var(--accent); border-radius: 4px; }
+        
+        .carousel-item {
+            flex: 0 0 100%;
+            scroll-snap-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: var(--white);
+        }
+        
+        .carousel-item img {
+            width: 100%;
+            border: none;
+            box-shadow: none;
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 0;
+        }
+        
+        .carousel-caption {
+            font-size: 0.85rem;
+            color: #555;
+            text-align: center;
+            padding: 12px;
+            background: #fdfdfd;
+            width: 100%;
+            box-sizing: border-box;
+            border-top: 1px solid #eee;
+        }
+
+        .scroll-hint {
+            font-size: 0.8rem;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: bold;
+            opacity: 0.8;
+        }
+
         .project-detail-block { margin-bottom: 25px; }
         .project-detail-block h4 {
             color: var(--primary);
@@ -373,16 +436,30 @@
                             </div>
                         </div>
 
+                        <!-- CAROUSEL IMPLEMENTATION -->
                         <div class="project-visual">
-                            <img src="buck-converter-3d.png" alt="3D render of the 19V-13V Buck Converter">
-                            <p style="font-size: 0.85rem; color: #777; text-align: center; margin-top: 5px; margin-bottom: 25px;">KiCad 3D render of the populated power regulation board[cite: 3].</p>
-                            
-                            <img src="buck-converter-layout.png" alt="PCB layout and routing">
-                            <p style="font-size: 0.85rem; color: #777; text-align: center; margin-top: 5px; margin-bottom: 25px;">PCB routing and copper layout[cite: 2].</p>
-                            
-                            <img src="buck-converter-schematic.png" alt="Schematic design">
-                            <p style="font-size: 0.85rem; color: #777; text-align: center; margin-top: 5px;">Logic schematic detailing the LM2596T-ADJ circuit[cite: 1].</p>
+                            <div class="carousel-container">
+                                <div class="carousel">
+                                    <!-- Item 1: Layout -->
+                                    <div class="carousel-item">
+                                        <img src="buck-converter-layout.png" alt="PCB layout and routing">
+                                        <div class="carousel-caption">PCB routing and copper layout.</div>
+                                    </div>
+                                    <!-- Item 2: 3D Render -->
+                                    <div class="carousel-item">
+                                        <img src="buck-converter-3d.png" alt="3D render of the 19V-13V Buck Converter">
+                                        <div class="carousel-caption">KiCad 3D render of the populated power regulation board.</div>
+                                    </div>
+                                    <!-- Item 3: Schematic -->
+                                    <div class="carousel-item">
+                                        <img src="buck-converter-schematic.png" alt="Schematic design">
+                                        <div class="carousel-caption">Logic schematic detailing the LM2596T-ADJ circuit.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="scroll-hint">← Swipe/Scroll to view render & schematic →</p>
                         </div>
+                        
                     </div>
                 </div>
             </div>
